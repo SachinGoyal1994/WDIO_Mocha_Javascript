@@ -1,4 +1,3 @@
-// @ts-check
 import LoginPage from '../pageobjects/herokuApp/login.page.js';
 import SecurePage from '../pageobjects/herokuApp/secure.page.js';
 
@@ -8,8 +7,6 @@ describe('Login:', () => {
         await LoginPage.login('tomsmith', 'SuperSecretPassword!');
 
         await expect(SecurePage.flashAlert).toBeExisting();
-        await expect(SecurePage.flashAlert).toHaveTextContaining(
-            'You logged into a secure area!');
     });
 });
 

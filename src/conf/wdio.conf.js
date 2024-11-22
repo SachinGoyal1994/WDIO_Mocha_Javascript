@@ -172,10 +172,14 @@ export const config = {
     reporters: ['spec',
         'dot',
         [video_reporter, {
-            saveAllVideos: true,       // If true, also saves videos for successful test cases
-            videoSlowdownMultiplier: 15, // Higher to get slower videos, lower for faster videos [Value 1-100]
-            videoRenderTimeout: 5,
+            saveAllVideos: false,       // If true, also saves videos for successful test cases
+            videoSlowdownMultiplier: 10, // Higher to get slower videos, lower for faster videos [Value 1-100]
+            videoRenderTimeout: 10,
+            async: true, // Enable asynchronous rendering
             outputDir: './reports/video-reports',
+            videoOptions: {
+                outputOptions: ['-vf', 'scale=1280:720'] // Set resolution to 720p
+            }
         }],
         ['allure', {
             outputDir: './reports/video-reports/allure-raw',
